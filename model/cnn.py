@@ -110,3 +110,5 @@ if __name__ == '__main__':
     dataset = args.dataset
 
     train_fv, train_labels, test_fv, test_labels = load_dataset()
+    train()
+
