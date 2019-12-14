@@ -100,9 +100,10 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, required=True, help='dataset file')
-    parser.add_argument('--model_file', type=str, required=True, help='file to save model')
-    parser.add_argument('--history_file', type=str, required=True, help='pkl file to save history')
+    parser.add_argument('--dataset', type=str, default='dunk-3-ptr.pkl', help='dataset file')
+    parser.add_argument('--model_file', type=str, default='mm5.h5', help='file to save model')
+    parser.add_argument('--history_file', type=str, default='mm5.h5-training-history.pkl',
+                        help='pkl file to save history')
 
     args = parser.parse_args()
     model_file = args.model_file
