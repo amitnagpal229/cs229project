@@ -1,28 +1,8 @@
 import argparse
-import cv2
-import time
 import pickle
 import numpy as np
-import math
-import json
 
-from action import limb_str_to_id
-from util import colors
-
-limb_id_to_str = ["rshoulder", "lshoulder", "rupperarm", "rlowerarm", "lupperarm", "llowerarm", "rhipneck",
-                  "rupperleg", "rlowerleg", "lhipneck", "lupperleg", "llowerleg", "noseneck", "reyenose", "reyeear",
-                  "leyenose", "leyeear"]
-
-# def is_arm_up(pose_array):
-#     limb_id_to_str[rlowerarm]
-# def jumped(track):
-#     max_pose_point = im_height
-#     max_arm_angle = -90
-#     for limb_id, limb in pose.items():
-#         max_pose_point = min(max_pose_point, limb['from'][1], limb['to'][1])
-#         if limb_id in ("rlowerarm", "llowerarm", "rupperarm", "lupperarm"):
-#             max_arm_angle = max(max_arm_angle, limb['ang'])
-#     return max_pose_point, max_arm_angle > 0, False
+from model.svm_truth_values import truth
 
 
 def hip_joint(upperleg, hipneck):
@@ -101,7 +81,6 @@ def shift_point(point, frame):
         point = np.array(point) - basket + np.array((basket_hspace, basket_vspace))
     else:
         point = np.array(point) - basket + np.array((im_width-basket_hspace, basket_vspace))
-        #point = (basket[0] + basket_hspace - point[0], point[1] - (basket[1] - basket_vspace))
 
     if not (0 <= point[0] <= 1920) or point[1] <= 0:
         return None
@@ -169,7 +148,6 @@ def process(tracks, unmatched_poses):
                        and arms_count >= 1 and shifted_position[1][i] > 0
 
             if frame_i in truth_frame or (has_jump and no_truth):
-                #print(f"Track: {track}, jumped around frame: {frame_i}")
                 jump = {'end_frame_id': frame_ids[i], 'track_id': track, 'basket': get_basket(frame_i),
                         'player_position': player_position[:, i], 'shifted_position': position,
                         'player_travel': player_travel[:, i]}
@@ -340,10 +318,6 @@ if __name__ == '__main__':
     pickle.dump((jumps, player_travels, player_positions, shifted_positions), open(out_jump_file, "wb"))
     print(key_frames, file=open(out_keyframes_file, 'w'))
 
-    #if not basket_location_unknown:
     print_training_file(tmove, "svm_move_labels.txt")
     print_training_file(tjump, "jump_labels.txt")
     print_training_file(tmj, "svm_mj_labels.txt")
-
-    for key in truth.keys():
-        print(key)
