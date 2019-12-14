@@ -1,9 +1,6 @@
 import argparse
 import cv2
-import time
 import pickle
-import numpy as np
-import math
 
 
 def init_video():
