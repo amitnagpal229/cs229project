@@ -7,7 +7,7 @@ import pickle
 import numpy as np
 import math
 import json
-from config_reader import config_reader
+from pose_opensource.config_reader import config_reader
 import pose_opensource.util as util
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))

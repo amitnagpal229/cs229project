@@ -6,8 +6,8 @@ import numpy as np
 import math
 import json
 
-from action import limb_str_to_id, limb_id_to_str
-from util import colors
+from pose.action import limb_str_to_id, limb_id_to_str
+from pose_opensource.util import colors
 
 pose_array_length = len(limb_id_to_str)*7  # number of pose limbs by 7 numbers per limb (x0, y1, x1, y1, len, angle, vel)
 gray = [128, 128, 128]
