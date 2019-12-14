@@ -1,0 +1,9 @@
+[submodule "pose_filter"]
+	path = pose_filter
+	url = https://github.com/amitnagpal229/pose_filter.git
+[submodule "pose"]
+	path = pose
+	url = https://github.com/amitnagpal229/keras_Realtime_Multi-Person_Pose_Estimation.git
+[submodule "tracking"]
+	path = tracking
+	url = https://github.com/amitnagpal229/deep_sort_pytorch.git
