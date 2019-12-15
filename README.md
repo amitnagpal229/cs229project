@@ -2,7 +2,7 @@
 ## cs229project submission - anagpal1@stanford.edu
 
 ## pose
-This is where we annotate all our videos with 2D pose estimates and store a lot of intermediate pkl files for analysis. Also has analysis and feature generation code.
+This is where we annotate all our videos with 2D pose estimates and store a lot of intermediate pkl files for analysis. Also has analysis and feature generation code. Also has code for experiments that did not make it to final methods of classification. action.py was the first file that was created as part of this project and has some code that is often referred to by other modules
 
 ## pose_track
 We annotate videos with tracking bounding boxes using deepsort. This is also where we have code that matches poses with deepsort's bounding boxes
