@@ -90,8 +90,8 @@ def process():
         jumps, player_travels, player_positions, shifted_positions = pickle.load(open(filename, "rb"))
         add_jumps(jumps, filename, dataset)
 
-    # plot_data(dataset)
-    #plot_data(truth_labels)
+    plot_data(dataset)
+    plot_data(truth_labels)
     plot_data(jump_truth)
 
 
@@ -99,13 +99,7 @@ def plot_keras_history(history):
     plt.figure()
 
     plt.plot(history.epoch, history.history['loss'], 'r', linewidth=1)
-    #plt.plot(history.epoch, history.history['val_loss'], 'g', linewidth=1)
 
-    font = {'family': 'normal',
-            'weight': 'bold',
-            'size': 22}
-
-#    plt.rc('font', **font)
     plt.xlabel('epoch')
     plt.ylabel('loss')
     plt.show()
@@ -123,5 +117,5 @@ if __name__ == '__main__':
     basket_width = 70
     basket_hspace = 140
 
-    #plot_keras_history(pickle.load(open("../model/mm5.h5-training-history.pkl", "rb")))
+    plot_keras_history(pickle.load(open("../model/mm5.h5-training-history.pkl", "rb")))
     process()
