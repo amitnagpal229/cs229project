@@ -1,0 +1,6 @@
+[submodule "pose_opensource"]
+	path = pose_opensource
+	url = https://github.com/michalfaber/keras_Realtime_Multi-Person_Pose_Estimation.git
+[submodule "deepsort_opensource"]
+	path = deepsort_opensource
+	url = https://github.com/ZQPei/deep_sort_pytorch.git
